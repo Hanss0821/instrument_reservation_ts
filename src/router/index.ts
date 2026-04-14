@@ -1,10 +1,11 @@
-const express = require('express');
-const path = require('path');
+
+import express from "express";
 const router = express.Router();
 // 导入控制层
-const loginController = require(path.resolve(__dirname,'../controllers/loginController.js'));
-const deviceController = require(path.resolve(__dirname,'../controllers/deviceController.js'));
-const dateController = require(path.resolve(__dirname,'../controllers/dateController.js'));
+import loginController from '../controllers/loginController.js';
+import deviceController from '../controllers/deviceController.js';
+import dateController from '../controllers/dateController.js';
+
 router.get("/",(req,res)=>{
     res.send('test');
 })
@@ -32,4 +33,4 @@ router.post('/deleteRecordByone',deleteReserveRecordByOne);
 router.post('/modifyRecord',modifyReserveRecord);
 // 获取预约时间表
 router.post('/getDeviceTimeList',getDeviceTimeList);
-module.exports = router;
+export default router;
